@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập dữ liệu người dùng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 20px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input, select {
+            margin-top: 5px;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            grid-column: 1 / -1;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: #333;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 500px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Nhập dữ liệu người dùng</h1>
+        <form method="POST">
+            <label>Gender:
+                <select name="Gender">
+                    <option value="0">Nữ</option>
+                    <option value="1">Nam</option>
+                </select>
+            </label>
+            <label>Age:
+                <select name="Age">
+                    <option value="0">&lt;18</option>
+                    <option value="1">18-25</option>
+                    <option value="2">26-35</option>
+                    <option value="3">36-45</option>
+                    <option value="4">46+</option>
+                </select>
+            </label>
+            <label>Occupation: <input type="number" name="Occupation" min="0" max="20" required></label>
+            <label>Stay_In_Current_City_Years: <input type="number" name="Stay_In_Current_City_Years" min="0" required></label>
+            <label>Marital_Status:
+                <select name="Marital_Status">
+                    <option value="0">Chưa kết hôn</option>
+                    <option value="1">Đã kết hôn</option>
+                </select>
+            </label>
+            <label>Product_Category_1: <input type="number" name="Product_Category_1" min="0" required></label>
+            <label>Product_Category_2: <input type="number" name="Product_Category_2" min="0" required></label>
+            <label>Product_Category_3: <input type="number" name="Product_Category_3" min="0" required></label>
+            <label>City_Category_A:
+                <select name="City_Category_A">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+            </label>
+            <label>City_Category_B:
+                <select name="City_Category_B">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+            </label>
+            <label>City_Category_C:
+                <select name="City_Category_C">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+            </label>
+
+            <button type="submit">Dự đoán chi tiêu</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
