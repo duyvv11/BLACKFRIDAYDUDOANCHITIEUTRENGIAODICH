@@ -5,7 +5,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load model đã train
-with open("rf_model.pkl", "rb") as f:
+with open("xgb_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 @app.route("/", methods=["GET", "POST"])
